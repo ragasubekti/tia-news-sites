@@ -44,6 +44,10 @@ class NewsDetail extends React.Component<any, any> {
           <title>{`nanoTIA - ${!isLoading &&
             data.seo &&
             data.seo.title}`}</title>
+
+          {!isLoading && data.seo && (
+            <meta name="description" content={data.seo.description} />
+          )}
         </Helmet>
         <div className="container">
           {isLoading && <div>Please Wait.. The Content is Loading</div>}

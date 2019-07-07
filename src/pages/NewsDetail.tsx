@@ -46,6 +46,8 @@ class NewsDetail extends React.Component<any, any> {
             data.seo.title}`}</title>
         </Helmet>
         <div className="container">
+          {isLoading && <div>Please Wait.. The Content is Loading</div>}
+
           {!isLoading && (
             <PostTitle
               style={{

@@ -48,6 +48,10 @@ class Home extends React.Component<any, any> {
   render() {
     return (
       <PostListStyled>
+        {this.props.newsList.isLoading && (
+          <div>Please Wait.. The Content is Loading</div>
+        )}
+
         {this.props.newsList.data.map((item: Post, index: number) => (
           <li
             key={index}

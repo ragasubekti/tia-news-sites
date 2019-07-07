@@ -17,7 +17,7 @@ export const getNewsList = (page: number = 0) => async (dispatch: any) => {
 
   try {
     const newsList = await axios.get(
-      "https://id.techinasia.com/wp-json/techinasia/2.0/posts"
+      "https://tia-request-middleware.herokuapp.com/"
     );
 
     const newsData: News = newsList.data;
@@ -46,7 +46,7 @@ export const getNewsDetail = (slug: string) => async (dispatch: any) => {
 
   try {
     const newsList = await axios.get(
-      `https://id.techinasia.com/wp-json/techinasia/3.0/posts/${slug}`
+      `https://tia-request-middleware.herokuapp.com/${slug}`
     );
 
     const newsData: NewsDetailType = newsList.data;

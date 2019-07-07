@@ -26,6 +26,7 @@ const PostContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 100%;
 `;
 
 export const PostTitle = styled.div`
@@ -36,6 +37,17 @@ export const PostTitle = styled.div`
 const PostThumbnail = styled.img`
   width: 400px;
   margin: 0 1.4rem 1rem 0;
+`;
+
+const PostAuthor = styled.div`
+  display: flex;
+  margin-top: 1rem;
+  align-items: center;
+`;
+
+const PostAvatar = styled.img`
+  border-radius: 50%;
+  margin-right: 10px;
 `;
 
 const PostShortText = styled.div``;
@@ -59,7 +71,11 @@ class Home extends React.Component<any, any> {
               this.props.history.push(`/${item.slug}`);
             }}
           >
-            <PostThumbnail src={item.featured_image.source} />
+            <PostThumbnail
+              src={item.featured_image.source}
+              width="400px"
+              alt={item.seo.title}
+            />
             <PostContentWrapper>
               <PostTitle
                 dangerouslySetInnerHTML={{
@@ -69,6 +85,16 @@ class Home extends React.Component<any, any> {
               <PostShortText>
                 {item.excerpt.replace(/(<([^>]+)>)/gi, "")}
               </PostShortText>
+
+              <PostAuthor>
+                <PostAvatar
+                  src={item.author.avatar_url}
+                  width="30px"
+                  alt={item.author.display_name}
+                />
+
+                {item.author.display_name}
+              </PostAuthor>
             </PostContentWrapper>
           </li>
         ))}

@@ -3,6 +3,8 @@ export const GET_NEWS_SUCCESS = "@news/GET_NEWS_SUCCESS";
 export const GET_NEWS_FAIL = "@news/GET_NEWS_FAIL";
 
 export const GET_NEWS_DETAIL = "@news/GET_NEWS_DETAIL";
+export const GET_NEWS_DETAIL_SUCCESS = "@news/GET_NEWS_DETAIL_SUCCESS";
+export const GET_NEWS_DETAIL_FAIL = "@news/GET_NEWS_DETAIL_FAIL";
 
 const initialState = {
   list: {
@@ -45,6 +47,24 @@ export default (state = initialState, action: ReduxAction) => {
           currentPage: action.payload.currentPage
         }
       };
+    case GET_NEWS_DETAIL:
+      return {
+        ...state,
+        detail: {
+          ...state.detail,
+          isLoading: true
+        }
+      };
+    case GET_NEWS_DETAIL_SUCCESS:
+      return {
+        ...state,
+        detail: {
+          ...state.detail,
+          isLoading: false,
+          data: action.payload.data
+        }
+      };
+
     default:
       return state;
   }

@@ -59,8 +59,14 @@ class Home extends React.Component<any, any> {
           >
             <PostThumbnail src={item.featured_image.source} />
             <PostContentWrapper>
-              <PostTitle>{item.title}</PostTitle>
-              <PostShortText>{item.excerpt}</PostShortText>
+              <PostTitle
+                dangerouslySetInnerHTML={{
+                  __html: item.title
+                }}
+              />
+              <PostShortText>
+                {item.excerpt.replace(/(<([^>]+)>)/gi, "")}
+              </PostShortText>
             </PostContentWrapper>
           </li>
         ))}

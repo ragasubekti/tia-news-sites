@@ -23,7 +23,7 @@ export const getNewsList = (page: number) => async (dispatch: any) => {
     });
   } catch (e) {
     dispatch({
-      types: GET_NEWS_FAIL,
+      type: GET_NEWS_FAIL,
       payload: {
         message: e
       }

@@ -1,5 +1,12 @@
 import axios from "axios";
-import { GET_NEWS, GET_NEWS_FAIL, GET_NEWS_SUCCESS, GET_NEWS_DETAIL } from ".";
+import {
+  GET_NEWS,
+  GET_NEWS_FAIL,
+  GET_NEWS_SUCCESS,
+  GET_NEWS_DETAIL,
+  GET_NEWS_DETAIL_SUCCESS,
+  GET_NEWS_DETAIL_FAIL
+} from ".";
 import { News } from "./news.types.js";
 import { NewsDetailType } from "./newsDetail.type";
 
@@ -45,15 +52,15 @@ export const getNewsDetail = (slug: string) => async (dispatch: any) => {
     const newsData: NewsDetailType = newsList.data;
 
     dispatch({
-      type: GET_NEWS_SUCCESS,
+      type: GET_NEWS_DETAIL_SUCCESS,
       payload: {
-        data: newsData.posts,
+        data: newsData.posts[0],
         currentPage: newsData.current_page
       }
     });
   } catch (e) {
     dispatch({
-      type: GET_NEWS_FAIL,
+      type: GET_NEWS_DETAIL_FAIL,
       payload: {
         message: e
       }

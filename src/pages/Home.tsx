@@ -28,9 +28,7 @@ const PostContentWrapper = styled.div`
   justify-content: center;
 `;
 
-const PostTitle = styled.div`
-  font-family: "Merriweather", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+export const PostTitle = styled.div`
   font-size: 1.4rem;
   margin-bottom: 0.5rem;
 `;

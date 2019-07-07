@@ -38,15 +38,19 @@ export default (state = initialState, action: ReduxAction) => {
         }
       };
     case GET_NEWS_SUCCESS:
-      return {
-        ...state,
-        list: {
-          ...state.list,
-          isLoading: false,
-          data: state.list.data.concat(action.payload.data),
-          currentPage: action.payload.currentPage
-        }
-      };
+      if (state.list.currentPage != action.payload.currentPage) {
+        return {
+          ...state,
+          list: {
+            ...state.list,
+            isLoading: false,
+            data: state.list.data.concat(action.payload.data),
+            currentPage: action.payload.currentPage
+          }
+        };
+      }
+
+      return state;
     case GET_NEWS_DETAIL:
       return {
         ...state,

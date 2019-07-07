@@ -39,13 +39,13 @@ const PostThumbnail = styled.img`
   margin: 0 1.4rem 1rem 0;
 `;
 
-const PostAuthor = styled.div`
+export const PostAuthor = styled.div`
   display: flex;
   margin-top: 1rem;
   align-items: center;
 `;
 
-const PostAvatar = styled.img`
+export const PostAvatar = styled.img`
   border-radius: 50%;
   margin-right: 10px;
 `;

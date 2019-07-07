@@ -4,7 +4,7 @@ import { bindActionCreators } from "redux";
 import { getNewsDetail } from "../modules/actions";
 import { Helmet } from "react-helmet";
 
-import { PostTitle } from "./Home";
+import { PostTitle, PostAuthor, PostAvatar } from "./Home";
 import { Post } from "../modules/newsDetail.type";
 import styled from "@emotion/styled";
 
@@ -62,6 +62,17 @@ class NewsDetail extends React.Component<any, any> {
                 __html: data.title
               }}
             />
+          )}
+
+          {!isLoading && data.author && (
+            <PostAuthor
+              style={{
+                marginBottom: "2rem"
+              }}
+            >
+              <PostAvatar src={data.author.avatar_url} width="50px" />
+              {data.author.display_name}
+            </PostAuthor>
           )}
 
           {!isLoading && data.excerpt && (

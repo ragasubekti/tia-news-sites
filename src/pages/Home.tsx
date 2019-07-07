@@ -74,6 +74,7 @@ class Home extends React.Component<any, any> {
             <PostThumbnail
               src={item.featured_image.source}
               width="400px"
+              height="100%"
               alt={item.seo.title}
             />
             <PostContentWrapper>
